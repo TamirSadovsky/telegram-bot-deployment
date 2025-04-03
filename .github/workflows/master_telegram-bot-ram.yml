@@ -10,7 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: read #This is required for actions/checkout
+      contents: read  # This is required for actions/checkout
 
     steps:
       - uses: actions/checkout@v4
@@ -35,8 +35,8 @@ jobs:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
-      id-token: write #This is required for requesting the JWT
-      contents: read #This is required for actions/checkout
+      id-token: write  # This is required for requesting the JWT
+      contents: read  # This is required for actions/checkout
 
     steps:
       - name: Checkout code
@@ -55,4 +55,5 @@ jobs:
         with:
           app-name: 'telegram-bot-ram'
           slot-name: 'Production'
-          # Optional: provide additional configurations if needed
+          # Specify the directory where your app is located (e.g., '.' for the root directory)
+          package: '.'  # Ensure this points to the correct directory containing app.py and requirements.txt
